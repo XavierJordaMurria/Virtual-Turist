@@ -16,7 +16,12 @@ class MapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate
     var locationManager: CLLocationManager!
     var location:CLLocation?
     var savedLocation:Bool = false
-    var firstLoad:Bool = false
+    
+    //The 1st time that we load the map after installing the map from scratch, we want to show the current location
+    var firstLoad:Bool = true
+    
+    //Bocking flag for the 1st time that we go into the viewDidLoad in the MapVC
+    var initiallyLoaded:Bool = false
     
     struct persistenLabelKeys
     {
@@ -30,12 +35,14 @@ class MapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate
         static var lon: Double = 0.0
     }
     
+    //MARK: -------- ViewController life Cycle Methods --------
     override func viewDidLoad()
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         print("viewDidLoad")
+        mapView.delegate = self
         
         if (CLLocationManager.locationServicesEnabled())
         {
@@ -46,20 +53,37 @@ class MapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate
             locationManager.requestAlwaysAuthorization()
             locationManager.startUpdatingLocation()
         }
+    }
+    
+    override func viewDidAppear(animated: Bool)
+    {
+        super.viewDidAppear(animated)
         
+        //the block of code below only runs once: when initially launching the app (because initiallyLoaded is set to true below, this won't run when a user returns back to this view controller from the photo album view
+        //loads a user's saved map zoom/pan/location setting from NSUserDefaults; this is performed in viewDIDappear rather than viewWILLappear because the map gets initially set to an app-determined location and regionDidChangeAnimated method gets called in BETWEEN viewWillAppear and viewDidAppear (and this initial location is NOT related to the loaded/saved location), so the code to load a user's saved preferences is delayed until now so that the saved location is loaded AFTER the app pre-sets the map, rather then before (and thus being overwritten, or "shifted" to a different location); it is ensured that the initial auotmatica "pre-set" region of the map is not saved as a user-based save (thus overwriting a user's save) via the mapViewRegionDidChangeFromUserInteraction method, which checks to make sure that when regionDidChangeAnimated is invoked, it is in response to user-generated input
         //get persistent data to set the map
-        savedLocation = NSUserDefaults.standardUserDefaults().boolForKey(persistenLabelKeys.savedLoc)
         
-        if(savedLocation)
+        if(!initiallyLoaded)
         {
-            if let savedRegion = NSUserDefaults.standardUserDefaults().objectForKey("savedMapRegion") as? [String: Double]
+            print("1st time MapVC view appears")
+            savedLocation = NSUserDefaults.standardUserDefaults().boolForKey(persistenLabelKeys.savedLoc);
+            
+            if let savedRegion = NSUserDefaults.standardUserDefaults().objectForKey(persistenLabelKeys.mapReg) as? [String: Double]
             {
+                print("load saved region from the persisten data NSUserDefaults")
                 let center = CLLocationCoordinate2D(latitude: savedRegion["mapRegionCenterLat"]!, longitude: savedRegion["mapRegionCenterLon"]!)
                 
                 let span = MKCoordinateSpan(latitudeDelta: savedRegion["mapRegionSpanLatDelta"]!, longitudeDelta: savedRegion["mapRegionSpanLonDelta"]!)
                 
                 mapView.region = MKCoordinateRegion(center: center, span: span)
             }
+            
+            //load all pins from the persistent store and add them to the map
+//                let annotationsToLoad = loadAllPins()
+//                mapView.addAnnotations(annotationsToLoad)
+            
+            //prevents this block of code from running again during the session
+            initiallyLoaded = true
         }
     }
 
@@ -69,6 +93,7 @@ class MapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK: ----------------
     /**
     * It is the callback for when the CLLocationManagerDelegate gets the current position on the map.
     **/
@@ -77,18 +102,17 @@ class MapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate
         location = locations.last! as CLLocation
         
         //just want to place the map in the current location once, after we want to let the user move the map freely.
-
         if let coords = location?.coordinate
         {
-            if(!firstLoad)
+            if(firstLoad && !savedLocation)
             {
-                print("locationManager savedLocation false")
+                print("locationManager firstLoad false")
                 let center = CLLocationCoordinate2D(latitude: coords.latitude, longitude: coords.longitude)
                 let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.09, longitudeDelta: 0.09))
                 mapView.setRegion(region, animated: true)
             }
 
-            firstLoad = true
+            firstLoad = false
         }
         else
         {
@@ -139,10 +163,10 @@ class MapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate
     
     func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool)
     {
-        print("region did change to \(mapView.region.center)")
-        
         if mapViewRegionDidChangeFromUserInteraction()
         {
+             print("region did change by USER to \(mapView.region.center)")
+            
             let regionToSave = [
                 "mapRegionCenterLat": mapView.region.center.latitude,
                 "mapRegionCenterLon": mapView.region.center.longitude,
