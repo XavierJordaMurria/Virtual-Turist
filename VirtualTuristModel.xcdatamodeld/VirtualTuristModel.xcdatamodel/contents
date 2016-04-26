@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="14F1509" minimumToolsVersion="Xcode 7.0">
     <entity name="Entity1" syncable="YES">
-        <attribute name="attribute" optional="YES" syncable="YES"/>
-        <attribute name="attribute1" optional="YES" syncable="YES"/>
-        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" syncable="YES"/>
+        <attribute name="attribute" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="attribute1" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Entity1" positionX="-126" positionY="-1413" width="128" height="90"/>
+        <element name="Entity1" positionX="-126" positionY="-1413" width="128" height="75"/>
     </elements>
 </model>

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		36DEB56B1CB58EDA00C6BA25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DEB56A1CB58EDA00C6BA25 /* AppDelegate.swift */; };
-		36DEB56D1CB58EDA00C6BA25 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DEB56C1CB58EDA00C6BA25 /* ViewController.swift */; };
+		36DEB56D1CB58EDA00C6BA25 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DEB56C1CB58EDA00C6BA25 /* MapVC.swift */; };
 		36DEB5701CB58EDA00C6BA25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36DEB56E1CB58EDA00C6BA25 /* Main.storyboard */; };
 		36DEB5721CB58EDA00C6BA25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36DEB5711CB58EDA00C6BA25 /* Assets.xcassets */; };
 		36DEB5751CB58EDA00C6BA25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36DEB5731CB58EDA00C6BA25 /* LaunchScreen.storyboard */; };
@@ -37,7 +37,7 @@
 /* Begin PBXFileReference section */
 		36DEB5671CB58EDA00C6BA25 /* Virtual Turist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Virtual Turist.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		36DEB56A1CB58EDA00C6BA25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		36DEB56C1CB58EDA00C6BA25 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		36DEB56C1CB58EDA00C6BA25 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		36DEB56F1CB58EDA00C6BA25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		36DEB5711CB58EDA00C6BA25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		36DEB5741CB58EDA00C6BA25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -101,7 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				36DEB56A1CB58EDA00C6BA25 /* AppDelegate.swift */,
-				36DEB56C1CB58EDA00C6BA25 /* ViewController.swift */,
+				36DEB56C1CB58EDA00C6BA25 /* MapVC.swift */,
 				36DEB56E1CB58EDA00C6BA25 /* Main.storyboard */,
 				36DEB5711CB58EDA00C6BA25 /* Assets.xcassets */,
 				36DEB5731CB58EDA00C6BA25 /* LaunchScreen.storyboard */,
@@ -259,7 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36DEB56D1CB58EDA00C6BA25 /* ViewController.swift in Sources */,
+				36DEB56D1CB58EDA00C6BA25 /* MapVC.swift in Sources */,
 				36DEB56B1CB58EDA00C6BA25 /* AppDelegate.swift in Sources */,
 				36DEB59A1CB58F0500C6BA25 /* VirtualTuristModel.xcdatamodeld in Sources */,
 			);
@@ -404,6 +404,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Virtual Turist/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jorda.xavier.Virtual-Turist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -415,6 +416,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Virtual Turist/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jorda.xavier.Virtual-Turist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -488,6 +490,7 @@
 				36DEB5911CB58EDA00C6BA25 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		36DEB5921CB58EDA00C6BA25 /* Build configuration list for PBXNativeTarget "Virtual TuristTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +499,7 @@
 				36DEB5941CB58EDA00C6BA25 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		36DEB5951CB58EDA00C6BA25 /* Build configuration list for PBXNativeTarget "Virtual TuristUITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +508,7 @@
 				36DEB5971CB58EDA00C6BA25 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
