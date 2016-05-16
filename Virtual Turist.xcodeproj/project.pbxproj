@@ -15,6 +15,9 @@
 		36DEB5801CB58EDA00C6BA25 /* Virtual_TuristTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DEB57F1CB58EDA00C6BA25 /* Virtual_TuristTests.swift */; };
 		36DEB58B1CB58EDA00C6BA25 /* Virtual_TuristUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DEB58A1CB58EDA00C6BA25 /* Virtual_TuristUITests.swift */; };
 		36DEB59A1CB58F0500C6BA25 /* VirtualTuristModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 36DEB5981CB58F0500C6BA25 /* VirtualTuristModel.xcdatamodeld */; };
+		36F440701CD34EF600A36151 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F4406D1CD34EF600A36151 /* Constants.swift */; };
+		36F440711CD34EF600A36151 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F4406E1CD34EF600A36151 /* CoreDataManager.swift */; };
+		36F440721CD34EF600A36151 /* PinCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F4406F1CD34EF600A36151 /* PinCustom.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		36DEB58A1CB58EDA00C6BA25 /* Virtual_TuristUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Virtual_TuristUITests.swift; sourceTree = "<group>"; };
 		36DEB58C1CB58EDA00C6BA25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36DEB5991CB58F0500C6BA25 /* VirtualTuristModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VirtualTuristModel.xcdatamodel; sourceTree = "<group>"; };
+		36F4406D1CD34EF600A36151 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		36F4406E1CD34EF600A36151 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		36F4406F1CD34EF600A36151 /* PinCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinCustom.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +106,9 @@
 		36DEB5691CB58EDA00C6BA25 /* Virtual Turist */ = {
 			isa = PBXGroup;
 			children = (
+				36F4406D1CD34EF600A36151 /* Constants.swift */,
+				36F4406E1CD34EF600A36151 /* CoreDataManager.swift */,
+				36F4406F1CD34EF600A36151 /* PinCustom.swift */,
 				36DEB56A1CB58EDA00C6BA25 /* AppDelegate.swift */,
 				36DEB56C1CB58EDA00C6BA25 /* MapVC.swift */,
 				36DEB56E1CB58EDA00C6BA25 /* Main.storyboard */,
@@ -262,6 +271,9 @@
 				36DEB56D1CB58EDA00C6BA25 /* MapVC.swift in Sources */,
 				36DEB56B1CB58EDA00C6BA25 /* AppDelegate.swift in Sources */,
 				36DEB59A1CB58F0500C6BA25 /* VirtualTuristModel.xcdatamodeld in Sources */,
+				36F440711CD34EF600A36151 /* CoreDataManager.swift in Sources */,
+				36F440721CD34EF600A36151 /* PinCustom.swift in Sources */,
+				36F440701CD34EF600A36151 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
